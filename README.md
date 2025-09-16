@@ -12,7 +12,16 @@ This repository contains two datasets of EF (ejection fraction) labels for PLAX 
 
 ## Description of Datasets
 
-### 1. Ground Truth Dataset
+### 1. Generated Dataset
+This dataset contains EF labels generated through the following pipeline:
+- **View Classification**: Applied a fine-tuned video view classifier to identify PLAX and A4C views in MIMIC-IV-ECHO.
+- **EF Value Generation**:
+  - Used a pre-trained A4C model to predict EF values for A4C videos.
+  - Averaged EF predictions across A4C videos in each study to assign EF labels to corresponding PLAX videos.
+- **Size**: 25,532 videos across 4,822 studies.
+- **Purpose**: Enables training of machine learning models for PLAX EF prediction.
+  
+### 2. Ground Truth Dataset
 This dataset contains EF labels derived from clinical notes in the MIMIC-IV-NOTE dataset. Using time-based correlation and GPT-4 NLP, EF values were extracted from discharge summaries and paired with corresponding PLAX videos. After rigorous filtering and validation:
 - **Size**: 1708 videos across 295 studies.
 - **Methodology**:
@@ -21,14 +30,7 @@ This dataset contains EF labels derived from clinical notes in the MIMIC-IV-NOTE
   - Validated EF values using a trained A4C model, achieving a mean absolute error (MAE) of 6.64%.
 - **Purpose**: Serves as an independent test set for evaluating PLAX EF prediction models.
 
-### 2. Generated Dataset
-This dataset contains EF labels generated through the following pipeline:
-- **View Classification**: Applied a fine-tuned video view classifier to identify PLAX and A4C views in MIMIC-IV-ECHO.
-- **EF Value Generation**:
-  - Used a pre-trained A4C model to predict EF values for A4C videos.
-  - Averaged EF predictions across A4C videos in each study to assign EF labels to corresponding PLAX videos.
-- **Size**: 25,532 videos across 4,822 studies.
-- **Purpose**: Enables training of machine learning models for PLAX EF prediction.
+
 
 ## File Format
 Both datasets are provided as CSV files with the following columns:
