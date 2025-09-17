@@ -76,7 +76,7 @@ To use these labels:
 - Pretrained models are available on Hugging Face: [PLAX Models](https://huggingface.co/Jeff4899/202509_PLAX_EF).
   
   **Note**: In the MIDL 2025 paper, EF prediction was aggregated from **4 PLAX models**.  
-  In practice, a simpler **50%–50% aggregation of 2 PLAX models ** provides comparable results.  
+  In practice, a simpler **50%–50% aggregation of 2 PLAX models** provides comparable results.  
   Therefore, only two PLAX models are uploaded to Hugging Face.  
   The datasets are unchanged.
 
