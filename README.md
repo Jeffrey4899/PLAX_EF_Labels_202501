@@ -68,7 +68,21 @@ To use these labels:
 1. Ensure you have access to the MIMIC-IV-ECHO dataset.
 2. Use the `subject_group`, `subject_id`, `study_id`, and `file_id` columns to locate the corresponding DICOM echo files in MIMIC-IV-ECHO.
 3. The `EF_value` column provides the EF percentage for the corresponding video.
+   
+---
 
+## 📦 Models and Code
+- Example inference code is provided in the [Colab notebook](https://colab.research.google.com/drive/1E2IWrfpBIKI4cBoBTCn3OLwEK9o3GTMM).  
+- Pretrained models are available on Hugging Face: [PLAX Models](https://huggingface.co/Jeff4899/202509_PLAX_EF) | [A4C Model](https://huggingface.co/Jeff4899/202509_A4C_EF).  
+- If you want to replicate the full aggregation setup (2×PLAX + 1×A4C), we recommend downloading all model checkpoints from Hugging Face.  
+
+We do **not** host large model files directly in this repository.  
+Instead, use:
+```python
+from huggingface_hub import hf_hub_download
+
+model_path = hf_hub_download(repo_id="your-hf-repo", filename="model.pt")
+```
 
 ## License
 This dataset is derived from the MIMIC-IV-ECHO and MIMIC-IV-NOTE datasets. Use of this dataset must comply with the MIMIC-IV Data Use Agreement. The labels are shared under the Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0) license. For full license details, see [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
